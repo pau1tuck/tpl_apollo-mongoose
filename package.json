@@ -10,7 +10,9 @@
 	},
 	"dependencies": {
 		"@apollo/server": "^4.9.5",
-		"graphql": "^16.8.1"
+		"graphql": "^16.8.1",
+		"mongodb": "^6.3.0",
+		"mongoose": "^8.0.1"
 	},
 	"devDependencies": {
 		"@types/node": "^20.9.4",
