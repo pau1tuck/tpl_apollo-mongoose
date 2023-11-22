@@ -23,7 +23,7 @@
 			},
 			"nursery": {},
 			"style": {
-				"useNamingConvention": "warn"
+				"useNamingConvention": "off"
 			},
 			"suspicious": {
 				"noExplicitAny": "warn"

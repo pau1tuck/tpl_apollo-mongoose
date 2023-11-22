@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
+import env from "@/config/env.config";
 
-const connectToDatabase = async () => {
+const connectToMongoDB = async () => {
 	try {
-		const dbUri = "your_mongodb_uri_here"; // Replace with your MongoDB URI
+		const dbUri = env.DB_URI;
 		const options = {
 			autoIndex: false, // Set to true in development
 			authSource: "admin",
 			bufferCommands: false,
-			dbName: "your_db_name",
+			dbName: env.DB_NAME,
 			family: 4, // Use IPv4, skip trying IPv6
 			heartbeatFrequencyMS: 10000,
 			maxPoolSize: 100,
@@ -16,11 +17,19 @@ const connectToDatabase = async () => {
 			socketTimeoutMS: 45000,
 		};
 
+		// Enable Mongoose debug mode for verbose output
+		mongoose.set("debug", env.NODE_ENV !== "production");
+
 		await mongoose.connect(dbUri, options);
 		console.log("Succesfully connected to MongoDB.");
+
+		// Event listeners
+		mongoose.connection.on("disconnected", () => {
+			console.log("MongoDB disconnected");
+		});
 	} catch (error) {
 		console.error("Error connecting to MongoDB:", error);
 	}
 };
 
-export default connectToDatabase;
+export default connectToMongoDB;
