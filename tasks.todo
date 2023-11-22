@@ -1,0 +1,4 @@
+TASKS:
+    ☐ Complete Passport integration (https://docs.nestjs.com/recipes/passport)
+        ☐ Implementing Passport local
+        ✔ auth module and users service @done (21/11/2023, 23:35:30)

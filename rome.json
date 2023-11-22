@@ -1,0 +1,33 @@
+{
+	"$schema": "./biome-schema.json",
+	"organizeImports": {
+		"enabled": false
+	},
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "tab",
+		"indentWidth": 4,
+		"lineWidth": 80,
+		"ignore": []
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"all": true,
+			"a11y": {
+				"all": false
+			},
+			"correctness": {
+				"noUnusedVariables": "warn"
+			},
+			"nursery": {},
+			"style": {
+				"useNamingConvention": "warn"
+			},
+			"suspicious": {
+				"noExplicitAny": "warn"
+			}
+		}
+	}
+}
