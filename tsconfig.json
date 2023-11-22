@@ -34,7 +34,5 @@
 		"paths": {
 			"@/*": ["./src/*"]
 		},
-		"include": ["src/**/*.ts", "src/**/*.js", "src/graphql/*.graphql"],
-		"exclude": ["env.d.ts", "node_modules/"]
 	}
 }
