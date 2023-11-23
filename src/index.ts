@@ -5,7 +5,7 @@ import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import cors from "cors";
-import { disconnectMongoDB } from "./config/database.config";
+import { connectMongoDB, disconnectMongoDB } from "./config/database.config";
 import env from "./config/env.config";
 import { typeDefs, resolvers } from "./config/apollo.config";
 
@@ -14,6 +14,9 @@ interface ApolloContext {
 }
 
 const server = async () => {
+	// Connect to MongoDB.
+	await connectMongoDB();
+
 	// Initialize Express.
 	const app: Application = express();
 
@@ -25,8 +28,6 @@ const server = async () => {
 		resolvers,
 		plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 	});
-
-	console.log(server);
 
 	await server.start();
 
@@ -45,11 +46,10 @@ const server = async () => {
 	);
 	console.log(`🚀 Server running on 127.0.0.1:${env.PORT}`);
 
-	/* Graceful Mongoose shutdown.
+	// Graceful Mongoose shutdown.
 	process.on("SIGINT", async () => {
 		disconnectMongoDB();
 	});
-    */
 };
 
 server().catch((err) => {

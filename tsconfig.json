@@ -7,6 +7,7 @@
 		"baseUrl": ".",
 		"rootDir": "src",
 		"outDir": "dist",
+
 		"noEmit": false,
 		"incremental": true,
 		"skipLibCheck": true,

@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 import env from "./env.config";
 
-const connectToMongoDB = async () => {
+export const connectMongoDB = async () => {
 	try {
 		const dbUri = env.DB_URI;
 		const options = {
@@ -43,5 +43,3 @@ export const disconnectMongoDB = async () => {
 		process.exit(1);
 	}
 };
-
-export default connectToMongoDB;
