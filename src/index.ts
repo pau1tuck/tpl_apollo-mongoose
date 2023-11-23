@@ -1,4 +1,4 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
 import http from "http";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
@@ -6,7 +6,7 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import cors from "cors";
 import { disconnectMongoDB } from "./config/database.config";
 
-interface MyContext {
+interface ApolloContext {
 	token?: string;
 }
 
@@ -17,7 +17,7 @@ const server = async () => {
 	const httpServer = http.createServer(app);
 
 	// Initialize ApolloServer with draining plugin.
-	const server = new ApolloServer<MyContext>({
+	const server = new ApolloServer<ApolloContext>({
 		typeDefs,
 		resolvers,
 		plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],

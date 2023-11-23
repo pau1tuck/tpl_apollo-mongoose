@@ -1,4 +1,4 @@
 TASKS:
-    Add Mongoose to basic Express server and test wiring
+    ☐ Add Mongoose to basic Express server and test wiring
     ☐ Quickly check env.config.ts style for BP and then copy values from tsk-api
     ✔ Create database.config.ts with Mongoose.connect and event handlers. @done (23/11/2023, 00:37:37)

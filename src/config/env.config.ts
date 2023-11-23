@@ -1,15 +1,15 @@
 // Check .env for required environment variables.
 const requiredEnvVars = ["DB_URI", "SESSION_SECRET"];
 
-for (const varName of requiredEnvVars) {
-	if (!process.env[varName]) {
+for (const envVar of requiredEnvVars) {
+	if (!process.env[envVar]) {
 		throw new Error(
-			`Environment variable ${varName} is required. Please modify your .env configuration.`,
+			`Environment variable ${envVar} is required. Please modify your .env file configuration.`,
 		);
 	}
 }
 
-// Extract environment variables from Node process and set defaults.
+// Import environment variables and set defaults.
 const envConfig: NodeJS.ProcessEnv = {
 	NODE_ENV: process.env.NODE_ENV || "development",
 	HOST: process.env.HOST || "localhost",
@@ -17,7 +17,7 @@ const envConfig: NodeJS.ProcessEnv = {
 	THREADS: process.env.THREADS || "1", // Web concurrency
 	// MongoDB database
 	DB_URI: process.env.DB_URI,
-	DB_NAME: process.env.DB_NAME,
+	DB_NAME: process.env.DB_NAME || "",
 };
 
 // Parse string and undefined environment variables to integers.
@@ -32,11 +32,11 @@ const toInt = (value: string | undefined, defaultValue: number): number => {
 	return parsed;
 };
 
-// Export environment variables to application.
+// Make environment variables globally available.
 const env = {
 	...envConfig,
 	PORT: toInt(envConfig.PORT, 3000),
-	WORKER_THREADS: toInt(envConfig.WORKER_THREADS, 1),
+	THREADS: toInt(envConfig.THREADS, 1),
 };
 
 export default env;
