@@ -20,7 +20,7 @@ export interface UserProfile extends BaseUser {
 	phoneNumber?: string;
 }
 
-export interface UserPicture extends BaseUser {
+export interface UserAvatar extends BaseUser {
 	picture?: string;
 }
 
@@ -36,24 +36,21 @@ export interface UserAddress extends BaseUser {
 export interface UserAccountStatus extends BaseUser {
 	isVerified?: boolean;
 	twoFactorEnabled?: boolean;
-	language?: string;
-	locale?: string;
-	timeZone?: string;
 	roles?: string[];
 	isActive?: boolean;
 	isSuspended?: boolean;
 }
 
 export interface UserAuditInfo extends BaseUser {
-	createdAt?: Date;
-	updatedAt?: Date;
+	createdAt: Date;
+	updatedAt: Date;
 	lastLogin?: Date;
 }
 
 export interface User
 	extends UserAuthentication,
 		UserProfile,
-		UserPicture,
+		UserAvatar,
 		UserAddress,
 		UserAccountStatus,
 		UserAuditInfo {}
