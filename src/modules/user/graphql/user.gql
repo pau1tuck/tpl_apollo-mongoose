@@ -1,0 +1,115 @@
+# Define a scalar for Date since GraphQL doesn't have a built-in Date type
+scalar Date
+
+# SocialAuth Type
+type SocialAuth {
+  facebookId: String
+  googleId: String
+  twitterId: String
+}
+
+# UserAuthentication Type
+type UserAuthentication {
+  userId: ID!  # Using ID type for MongoDB's _id
+  socialAuth: SocialAuth
+  username: String
+  email: String
+  phoneNumber: String
+  password: String  # Be cautious with exposing password fields
+}
+
+# UserProfile Type
+type UserProfile {
+  userId: ID!
+  givenName: String
+  familyName: String
+  preferredName: String
+  birthDate: Date
+  gender: String
+}
+
+# UserAvatar Type
+type UserAvatar {
+  userId: ID!
+  picture: String
+}
+
+# UserAddress Type
+type UserAddress {
+  userId: ID!
+  streetName: String
+  streetNumber: String
+  city: String
+  state: String
+  country: String
+  postalCode: String
+}
+
+# UserAccountStatus Type
+type UserAccountStatus {
+  userId: ID!
+  isVerified: Boolean
+  twoFactorEnabled: Boolean
+  roles: [String]
+  isActive: Boolean
+  isSuspended: Boolean
+}
+
+# UserAuditInfo Type
+type UserAuditInfo {
+  userId: ID!
+  createdAt: Date
+  updatedAt: Date
+  lastLogin: Date
+}
+
+type UserBasic {
+  userId: ID!
+  email: String
+  givenName: String
+  familyName: String
+  preferredName: String
+  roles: [String]
+}
+
+# User Type
+type User {
+  # Include fields from all interfaces
+  # UserAuthentication fields
+  userId: ID!
+  socialAuth: SocialAuth
+  username: String
+  email: String
+  phoneNumber: String
+  password: String
+
+  # UserProfile fields
+  givenName: String
+  familyName: String
+  preferredName: String
+  birthDate: Date
+  gender: String
+
+  # UserAvatar fields
+  picture: String
+
+  # UserAddress fields
+  streetName: String
+  streetNumber: String
+  city: String
+  state: String
+  country: String
+  postalCode: String
+
+  # UserAccountStatus fields
+  isVerified: Boolean
+  twoFactorEnabled: Boolean
+  roles: [String]
+  isActive: Boolean
+  isSuspended: Boolean
+
+  # UserAuditInfo fields
+  createdAt: Date
+  updatedAt: Date
+  lastLogin: Date
+}

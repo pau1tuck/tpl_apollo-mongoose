@@ -37,6 +37,7 @@ const UserSchema = new Schema({
 	// UserAccountStatus
 	isVerified: { type: Boolean, default: false },
 	twoFactorEnabled: { type: Boolean, default: false },
+	// Roles: staff, admin, subscriber
 	roles: [{ type: String, default: [] }],
 	isActive: { type: Boolean, default: true },
 	isSuspended: { type: Boolean, default: false },

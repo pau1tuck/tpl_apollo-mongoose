@@ -1,3 +1,4 @@
+// @/modules/user/schemas/user-settings.schema.ts
 import mongoose, { Schema } from "mongoose";
 
 const UserSettingsSchema = new Schema({
