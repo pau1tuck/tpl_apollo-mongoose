@@ -1,4 +1,4 @@
-// src/config/database.config.ts
+// @/config/database.config.ts
 import mongoose from "mongoose";
 import env from "@/config/env.config";
 

@@ -19,6 +19,7 @@
 	"devDependencies": {
 		"@types/cors": "^2.8.17",
 		"@types/node": "^20.9.4",
+		"envalid": "^8.0.0",
 		"nodemon": "^3.0.1",
 		"typescript": "^5.3.2"
 	}

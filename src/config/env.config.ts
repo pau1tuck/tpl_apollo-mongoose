@@ -1,43 +1,34 @@
-// src/config/env.config.ts
-// Check .env for required environment variables.
-const requiredEnvVars = ["DB_URI", "SESSION_SECRET"];
+// @/config/env.config.ts
+import { cleanEnv, str, num, url, email } from "envalid";
 
-for (const envVar of requiredEnvVars) {
-	if (!process.env[envVar]) {
-		throw new Error(
-			`Environment variable ${envVar} is required. Please modify your .env file configuration.`,
-		);
-	}
+interface ProcessEnv {
+	// Node.js server settings
+	NODE_ENV: "development" | "test" | "staging" | "production";
+	HOST: string;
+	PORT: number;
+	THREADS: number;
+
+	// Database
+	DB_URI: string;
+	DB_NAME: string;
 }
 
-// Import environment variables and set defaults.
-const envConfig: NodeJS.ProcessEnv = {
-	NODE_ENV: process.env.NODE_ENV || "development",
-	HOST: process.env.HOST || "localhost",
-	PORT: process.env.PORT || "3000",
-	THREADS: process.env.THREADS || "1", // Web concurrency
-	// MongoDB database
-	DB_URI: process.env.DB_URI,
-	DB_NAME: process.env.DB_NAME || "",
-};
-
-// Parse string and undefined environment variables to integers.
-const toInt = (value: string | undefined, defaultValue: number): number => {
-	if (value === undefined) {
-		return defaultValue;
-	}
-	const parsed = parseInt(value, 10);
-	if (Number.isNaN(parsed)) {
-		return defaultValue;
-	}
-	return parsed;
-};
-
-// Make environment variables globally available.
-const env = {
-	...envConfig,
-	PORT: toInt(envConfig.PORT, 3000),
-	THREADS: toInt(envConfig.THREADS, 1),
-};
+const env: ProcessEnv = cleanEnv(process.env, {
+	// Node.js server
+	NODE_ENV: str({
+		choices: ["development", "test", "production", "staging"],
+	}),
+	HOST: str({ default: "localhost" }),
+	PORT: num({ default: 3000 }),
+	THREADS: num({ default: 1 }),
+	// Database
+	DB_URI: str(),
+	DB_NAME: str({ default: "" }),
+	// ... other variables as needed
+	// For email validation
+	// ADMIN_EMAIL: email({ default: "admin@example.com" }),
+	// For URL validation
+	// SOME_API_URL: url(),
+});
 
 export default env;
