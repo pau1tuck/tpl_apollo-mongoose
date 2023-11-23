@@ -26,6 +26,8 @@ const server = async () => {
 		plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 	});
 
+	console.log(server);
+
 	await server.start();
 
 	// Handle CORS and JSON body parser middleware.

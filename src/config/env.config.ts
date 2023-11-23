@@ -1,5 +1,7 @@
 // @/config/env.config.ts
 import { cleanEnv, str, num, url, email } from "envalid";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 interface ProcessEnv {
 	// Node.js server settings
