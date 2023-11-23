@@ -1,9 +1,9 @@
 {
 	"compilerOptions": {
-		"target": "es2020",
+		"target": "es6",
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"lib": ["es2020"],
+		"lib": ["es2020", "esnext.asynciterable"],
 		"baseUrl": ".",
 		"rootDir": "src",
 		"outDir": "dist",
@@ -37,5 +37,5 @@
 		}
 	},
 	"include": ["src/**/*.ts"],
-	"exclude": ["node_modules/", "scripts/", "archive"]
+	"exclude": ["node_modules/", "scripts/", "archive/"]
 }

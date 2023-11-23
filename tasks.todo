@@ -1,4 +1,7 @@
 TASKS:
+    User module:
+      ☐ UserSchema
+
     ☐ Create modules/users UserSchema
     ☐ Add Mongoose to basic Apollo server and test wiring
     ☐ Test basic Apollo server without database
