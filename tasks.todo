@@ -1,10 +1,9 @@
 TASKS:
     ☐ Create modules/users UserSchema
-    ☐ Create empty resolvers import
-    ☐ typeDefs
     ☐ Add Mongoose to basic Apollo server and test wiring
     ☐ Test basic Apollo server without database
-    ☐ Quickly check env.config.ts style for BP and then copy values from tsk-api
+    ✔ Quickly check env.config.`ts style for BP and then copy values from tsk-api @done (23/11/2023, 19:09:42)
+    ✔ Create User interface type and extensions @done (23/11/2023, 18:28:21)
     ✔ Create database.config.ts with Mongoose.connect and event handlers. @done (23/11/2023, 00:37:37)
 
 

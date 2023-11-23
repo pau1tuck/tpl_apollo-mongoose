@@ -1,3 +1,4 @@
+// @/index.ts
 import express, { Application } from "express";
 import http from "http";
 import { ApolloServer } from "@apollo/server";
@@ -6,6 +7,7 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import cors from "cors";
 import { disconnectMongoDB } from "./config/database.config";
 import env from "@/config/env.config";
+import { typeDefs, resolvers } from "./config/apollo.config";
 
 interface ApolloContext {
 	token?: string;
