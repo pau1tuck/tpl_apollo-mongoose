@@ -2,22 +2,26 @@ export interface BaseUser {
 	userId: string; // Assigned by Mongoose, not optional
 }
 
-export interface UserAuthentication extends BaseUser {
+interface SocialAuth {
 	facebookId?: string;
 	googleId?: string;
 	twitterId?: string;
+}
+
+export interface UserAuthentication extends BaseUser {
+	socialAuth?: SocialAuth;
+	username?: string;
 	email?: string;
+	phoneNumber?: string;
 	password?: string;
 }
 
 export interface UserProfile extends BaseUser {
-	username?: string;
 	givenName?: string;
 	familyName?: string;
 	preferredName?: string;
 	birthDate?: Date;
 	gender?: string;
-	phoneNumber?: string;
 }
 
 export interface UserAvatar extends BaseUser {

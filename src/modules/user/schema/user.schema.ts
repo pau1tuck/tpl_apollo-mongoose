@@ -2,25 +2,27 @@ import mongoose, { Schema } from "mongoose";
 
 const UserSchema = new Schema({
 	// UserAuthentication
-	facebookId: { type: String, default: null },
-	googleId: { type: String, default: null },
-	twitterId: { type: String, default: null },
+	socialAuth: {
+		facebookId: { type: String, default: null },
+		googleId: { type: String, default: null },
+		twitterId: { type: String, default: null },
+	},
+	username: { type: String, default: null },
 	email: { type: String, default: null },
+	phoneNumber: { type: String, default: null },
 	password: { type: String, default: null },
 
 	// UserProfile
-	username: { type: String, default: null },
 	givenName: { type: String, default: null },
 	familyName: { type: String, default: null },
 	preferredName: { type: String, default: null },
 	birthDate: { type: Date, default: null },
 	gender: { type: String, default: null },
-	phoneNumber: { type: String, default: null },
 
 	// UserAvatar
 	avatar: {
 		picture: { type: String, default: null },
-	}
+	},
 
 	// UserAddress as a nested object
 	address: {
@@ -44,3 +46,5 @@ const UserSchema = new Schema({
 	updatedAt: { type: Date, default: Date.now },
 	lastLogin: { type: Date, default: null },
 });
+
+export default mongoose.model("User", UserSchema);
