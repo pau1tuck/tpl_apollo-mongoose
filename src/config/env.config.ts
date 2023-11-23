@@ -20,7 +20,7 @@ const env: ProcessEnv = cleanEnv(process.env, {
 	NODE_ENV: str({
 		choices: ["development", "test", "production", "staging"],
 	}),
-	HOST: str({ default: "localhost" }),
+	HOST: str({ default: "127.0.0.1" }),
 	PORT: num({ default: 3000 }),
 	THREADS: num({ default: 1 }),
 	// Database

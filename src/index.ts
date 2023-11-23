@@ -44,7 +44,7 @@ const server = async () => {
 	await new Promise<void>((resolve) =>
 		httpServer.listen({ port: env.PORT }, resolve),
 	);
-	console.log(`🚀 Server running on 127.0.0.1:${env.PORT}`);
+	console.log(`🚀 Server running on ${env.HOST}:${env.PORT}`);
 
 	// Graceful Mongoose shutdown.
 	process.on("SIGINT", async () => {
