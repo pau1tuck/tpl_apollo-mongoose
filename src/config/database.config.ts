@@ -1,6 +1,6 @@
 // @/config/database.config.ts
 import mongoose from "mongoose";
-import env from "@/config/env.config";
+import env from "./env.config";
 
 const connectToMongoDB = async () => {
 	try {

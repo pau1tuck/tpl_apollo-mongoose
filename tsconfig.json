@@ -1,13 +1,16 @@
 {
 	"compilerOptions": {
-		"rootDirs": ["src"],
-		"outDir": "dist",
-		"baseUrl": ".",
-		"lib": ["es2020"],
 		"target": "es2020",
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"types": ["node"],
+		"lib": ["es2020"],
+		"baseUrl": ".",
+		"rootDir": "src",
+		"outDir": "dist",
+		"noEmit": false,
+		"incremental": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
 		"strict": true,
 		"allowJs": false,
 		"checkJs": false,
@@ -19,8 +22,6 @@
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
 		"importHelpers": true,
-		"incremental": true,
-		"noEmit": false,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true,
 		"noImplicitThis": true,
@@ -28,14 +29,12 @@
 		"noUnusedParameters": false,
 		"removeComments": true,
 		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"sourceMap": true,
 		"strictFunctionTypes": true,
 		"strictNullChecks": true,
 		"paths": {
 			"@/*": ["./src/*"]
 		}
 	},
-	"include": ["src/**/*"],
-	"exclude": ["./archive/"]
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules/", "scripts/", "archive"]
 }

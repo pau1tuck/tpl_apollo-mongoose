@@ -6,7 +6,7 @@ import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import cors from "cors";
 import { disconnectMongoDB } from "./config/database.config";
-import env from "@/config/env.config";
+import env from "./config/env.config";
 import { typeDefs, resolvers } from "./config/apollo.config";
 
 interface ApolloContext {
