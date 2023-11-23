@@ -35,7 +35,7 @@ const connectToMongoDB = async () => {
 export const disconnectMongoDB = async () => {
 	try {
 		await mongoose.connection.close();
-		console.log("MongoDB connection was gracefully closed.");
+		console.log("MongoDB connection closed.");
 		process.exit(0);
 	} catch (error) {
 		console.error("Error closing MongoDB connection:", error);
