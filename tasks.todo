@@ -8,6 +8,8 @@ TASKS:
     ✔ Create database.config.ts with Mongoose.connect and event handlers. @done (23/11/2023, 00:37:37)
 
 
+    ---
+
     When you receive data from different OAuth providers, you can write a normalization layer that converts the data into a consistent format used by your application.
 For example, you could map picture from Google and Facebook and profile_image_url from Twitter to a single field in your schema, such as profilePicture.
 This normalization process would take place in the part of your code where you handle the OAuth responses.

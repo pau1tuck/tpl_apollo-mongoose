@@ -1,3 +1,4 @@
+// src/config/env.config.ts
 // Check .env for required environment variables.
 const requiredEnvVars = ["DB_URI", "SESSION_SECRET"];
 
