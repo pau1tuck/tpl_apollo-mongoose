@@ -25,10 +25,21 @@ const connectToMongoDB = async () => {
 
 		// Event listeners
 		mongoose.connection.on("disconnected", () => {
-			console.log("MongoDB disconnected");
+			console.log("MongoDB disconnected.");
 		});
 	} catch (error) {
 		console.error("Error connecting to MongoDB:", error);
+	}
+};
+
+export const disconnectMongoDB = async () => {
+	try {
+		await mongoose.connection.close();
+		console.log("MongoDB connection was gracefully closed.");
+		process.exit(0);
+	} catch (error) {
+		console.error("Error closing MongoDB connection:", error);
+		process.exit(1);
 	}
 };
 

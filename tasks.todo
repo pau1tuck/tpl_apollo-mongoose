@@ -1,4 +1,4 @@
 TASKS:
-    ☐ Complete Passport integration (https://docs.nestjs.com/recipes/passport)
-        ☐ Implementing Passport local
-        ✔ auth module and users service @done (21/11/2023, 23:35:30)
+    Add Mongoose to basic Express server and test wiring
+    ☐ Quickly check env.config.ts style for BP and then copy values from tsk-api
+    ✔ Create database.config.ts with Mongoose.connect and event handlers. @done (23/11/2023, 00:37:37)
