@@ -5,6 +5,7 @@ import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import cors from "cors";
 import { disconnectMongoDB } from "./config/database.config";
+import env from "@/config/env.config";
 
 interface ApolloContext {
 	token?: string;
@@ -16,7 +17,7 @@ const server = async () => {
 
 	const httpServer = http.createServer(app);
 
-	// Initialize ApolloServer with draining plugin.
+	// Initialize ApolloServer with graceful shutdown plugin.
 	const server = new ApolloServer<ApolloContext>({
 		typeDefs,
 		resolvers,
@@ -25,7 +26,7 @@ const server = async () => {
 
 	await server.start();
 
-	// Handle CORS and JSON body parser
+	// Handle CORS and JSON body parser middleware.
 	app.use(
 		"/",
 		cors<cors.CorsRequest>(),
@@ -36,14 +37,15 @@ const server = async () => {
 	);
 
 	await new Promise<void>((resolve) =>
-		httpServer.listen({ port: env.NODE_PORT }, resolve),
+		httpServer.listen({ port: env.PORT }, resolve),
 	);
-	console.log(`🚀 Server running on 127.0.0.1:${env.NODE_PORT}`);
+	console.log(`🚀 Server running on 127.0.0.1:${env.PORT}`);
 
-	// Gracefully shutdown Mongoose connection.
+	/* Graceful Mongoose shutdown.
 	process.on("SIGINT", async () => {
 		disconnectMongoDB();
 	});
+    */
 };
 
 server().catch((err) => {
