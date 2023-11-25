@@ -1,9 +1,11 @@
 TASKS:
     User module:
-      ✔ User interface @done (24/11/2023, 05:38:26)
+      ☐ user.gql
       ✔ UserSchema @done (24/11/2023, 05:38:28)
-      ☐ UserSettings interface
+      ✔ User interface @done (24/11/2023, 05:38:26)
+      ☐ user-settings.gql
       ☐ UserSettingsSchema
+      ☐ UserSettings interface
 
     ☐ Create modules/users UserSchema
     ☐ Add Mongoose to basic Apollo server and test wiring
