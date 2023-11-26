@@ -14,7 +14,7 @@ type UserAuthentication {
   username: String
   email: String
   phoneNumber: String
-  password: String  # Be cautious with exposing password fields
+  password: String
 }
 
 # UserProfile Type
