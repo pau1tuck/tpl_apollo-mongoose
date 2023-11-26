@@ -3,13 +3,12 @@ export interface BaseUser {
 }
 
 interface SocialAuth {
-	facebookId?: string;
-	googleId?: string;
-	twitterId?: string;
+	platform?: string;
+	platformID?: string;
 }
 
 export interface UserAuthentication extends BaseUser {
-	socialAuth?: SocialAuth;
+	socialAuth?: [SocialAuth];
 	username?: string;
 	email?: string;
 	phoneNumber?: string;

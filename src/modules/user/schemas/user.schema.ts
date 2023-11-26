@@ -1,12 +1,16 @@
 import mongoose, { Schema } from "mongoose";
 
+const socialAuthSchema = new Schema(
+	{
+		platform: String,
+		platformId: String,
+	},
+	{ _id: false },
+);
+
 const UserSchema = new Schema({
 	// UserAuthentication
-	socialAuth: {
-		facebookId: { type: String, default: null },
-		googleId: { type: String, default: null },
-		twitterId: { type: String, default: null },
-	},
+	socialAuth: [socialAuthSchema],
 	username: { type: String, default: null, lowercase: true },
 	email: { type: String, default: null },
 	phoneNumber: { type: String, default: null },

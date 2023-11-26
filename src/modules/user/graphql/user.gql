@@ -3,15 +3,14 @@ scalar Date
 
 # SocialAuth Type
 type SocialAuth {
-  facebookId: String
-  googleId: String
-  twitterId: String
+  platform: String
+  platformId: String
 }
 
 # UserAuthentication Type
 type UserAuthentication {
   userId: ID!  # Using ID type for MongoDB's _id
-  socialAuth: SocialAuth
+  socialAuth: [SocialAuth]
   username: String
   email: String
   phoneNumber: String
@@ -48,17 +47,17 @@ type UserAddress {
 # UserAccountStatus Type
 type UserAccountStatus {
   userId: ID!
-  isVerified: Boolean
+  isVerified!: Boolean
   twoFactorEnabled: Boolean
-  roles: [String]
-  isActive: Boolean
-  isSuspended: Boolean
+  roles!: [String]
+  isActive!: Boolean
+  isSuspended!: Boolean
 }
 
 # UserAuditInfo Type
 type UserAuditInfo {
   userId: ID!
-  createdAt: Date
+  createdAt!: Date
   updatedAt: Date
   lastLogin: Date
 }
@@ -69,7 +68,7 @@ type UserBasic {
   givenName: String
   familyName: String
   preferredName: String
-  roles: [String]
+  roles!: [String]
 }
 
 # User Type
@@ -102,14 +101,14 @@ type User {
   postalCode: String
 
   # UserAccountStatus fields
-  isVerified: Boolean
+  isVerified!: Boolean
   twoFactorEnabled: Boolean
-  roles: [String]
-  isActive: Boolean
-  isSuspended: Boolean
+  roles!: [String]
+  isActive!: Boolean
+  isSuspended!: Boolean
 
   # UserAuditInfo fields
-  createdAt: Date
+  createdAt!: Date
   updatedAt: Date
   lastLogin: Date
 }
