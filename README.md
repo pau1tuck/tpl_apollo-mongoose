@@ -1,3 +1,3 @@
-# tpl_apollo-typeorm
+# tpl_apollo-mongoose
 
-Reference template for Node.js, PostgreSQL, Express.js, Apollo Server, TypeORM, GraphQL.
+Reference template for Node.js, MongoDB, Express.js, Apollo Server, Mongoose, GraphQL.

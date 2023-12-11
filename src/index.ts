@@ -33,7 +33,7 @@ const server = async () => {
 
 	// Handle CORS and JSON body parser middleware.
 	app.use(
-		"/",
+		"/graphql",
 		cors<cors.CorsRequest>(),
 		express.json(),
 		expressMiddleware(server, {
