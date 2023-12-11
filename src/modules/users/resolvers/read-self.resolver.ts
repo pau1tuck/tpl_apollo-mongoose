@@ -3,8 +3,9 @@ import User from "@/modules/users/models/user.schema";
 
 const readSelf: IResolvers = {
 	Query: {
-		user(parent, args, contextValue, info) {
-			return; // Mongoose command
+		user: async (parent, args, contextValue, info) => {
+			const { id } = args;
+            return await User.findById(id);
 		},
 	},
 };
