@@ -5,7 +5,7 @@ import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import cors from "cors";
-import { connectMongoDB, disconnectMongoDB } from "./config/database.config";
+import { connectMongoDB, disconnectMongoDB } from "./config/mongoose.config";
 import env from "./config/env.config";
 import { typeDefs, resolvers } from "./config/apollo.config";
 

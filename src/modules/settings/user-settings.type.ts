@@ -1,4 +1,4 @@
-import { BaseUser } from "./user.type";
+import { BaseUser } from "../users/types/user.type";
 
 export interface UserSettings {
 	user: BaseUser;
