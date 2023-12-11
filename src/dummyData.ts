@@ -1,5 +1,1 @@
-const users = [
-    {id: '1',
-    givenName: "Paul",
-}
-]
+const users = [{ id: "1", givenName: "Paul" }];
